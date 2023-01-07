@@ -167,6 +167,27 @@
       "createdAt": "2022-07-14T08:00:44.954Z",
       "updatedAt": "2022-07-14T08:00:44.954Z",
       "id": "favorite-eceac861-7762-45c2-908f-22f30ca463f9"
+    },
+    {
+      "userId": "user-79b1e376-dfab-4600-8258-0297a77478d5",
+      "tweetId": "tweet-88e1f716-82fc-4a55-bfa1-acd7d29682a1",
+      "createdAt": "2022-07-14T16:35:02.692Z",
+      "updatedAt": "2022-07-14T16:35:02.692Z",
+      "id": "favorite-05009bc4-a740-4cd7-be61-48aeaab5cade"
+    },
+    {
+      "userId": "user-79b1e376-dfab-4600-8258-0297a77478d5",
+      "tweetId": "tweet-aef79bf4-3626-445b-b7d2-84f63f457515",
+      "createdAt": "2022-07-14T16:35:10.417Z",
+      "updatedAt": "2022-07-14T16:35:10.417Z",
+      "id": "favorite-83416c7f-2f1b-440b-aa87-cac743a5ac66"
+    },
+    {
+      "userId": "user-79b1e376-dfab-4600-8258-0297a77478d5",
+      "tweetId": "tweet-f5b5f71d-f5e6-4760-8dce-a1a9bf939582",
+      "createdAt": "2022-07-14T16:35:16.931Z",
+      "updatedAt": "2022-07-14T16:35:16.931Z",
+      "id": "favorite-6127ec31-645d-4bae-a388-26b01392e7c1"
     }
   ],
   "hashtagTrends": [
@@ -179,28 +200,19 @@
   ],
   "topicTrends": [
     {
-      "topic": "Pointless Suggestions",
-      "tweetCount": 999,
-      "kind": "topic",
-      "id": "topictrend-c1b6bcab-9cf5-4589-aede-b80bffd3e95a"
-    },
-    {
       "topic": "Frontend Masters",
       "tweetCount": 12345,
       "kind": "topic",
       "id": "topictrend-4a5eb753-0c2d-4397-b4de-7ba9264553b3"
-    }
-  ],
-  "topicTrendQuotes": [
+    },
     {
       "topic": "Pointless Suggestions",
       "tweetCount": 999,
-      "title": "clippy",
-      "description": "It looks like you're trying to write a letter...",
-      "imageUrl": "http://localhost:3000/static/clippy-logo.jpeg",
-      "topicTrendId": "topictrend-c1b6bcab-9cf5-4589-aede-b80bffd3e95a",
-      "id": "topictrendquote-c7683d54-bc55-4219-a6bc-a57ab238a36f"
-    },
+      "kind": "topic",
+      "id": "topictrend-c1b6bcab-9cf5-4589-aede-b80bffd3e95a"
+    }
+  ],
+  "topicTrendQuotes": [
     {
       "topic": "Frontend Masters",
       "tweetCount": 12345,
@@ -209,6 +221,15 @@
       "imageUrl": "http://localhost:3000/static/fem_logo.png",
       "topicTrendId": "topictrend-4a5eb753-0c2d-4397-b4de-7ba9264553b3",
       "id": "topictrendquote-cf40f78c-15fc-40d3-97d7-b92f19fe77ef"
+    },
+    {
+      "topic": "Pointless Suggestions",
+      "tweetCount": 999,
+      "title": "clippy",
+      "description": "It looks like you're trying to write a letter...",
+      "imageUrl": "http://localhost:3000/static/clippy-logo.jpeg",
+      "topicTrendId": "topictrend-c1b6bcab-9cf5-4589-aede-b80bffd3e95a",
+      "id": "topictrendquote-c7683d54-bc55-4219-a6bc-a57ab238a36f"
     }
   ],
   "suggestions": [

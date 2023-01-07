@@ -21,6 +21,11 @@ export const GET_CURRENT_USER = gql`
             followerCount
             followingCount
         }
+        favorites {
+            tweet {
+                id
+            }
+        }
     }
     suggestions {
         name
@@ -28,44 +33,23 @@ export const GET_CURRENT_USER = gql`
         avatarUrl
         reason
     }
+    trends {
+        ... on TopicTrend {
+            tweetCount
+            topic
+            quote {
+                title
+                imageUrl
+                description
+            }
+        }
+        ... on HashtagTrend {
+            tweetCount
+            hashtag
+        }
+    }
   }
 `
-
-const CURRENT_USER = {
-  name: 'Stu Dent',
-  handle: 'student',
-  avatarUrl: 'http://localhost:3000/static/egg.jpeg',
-  coverUrl: 'http://localhost:3000/static/beach.jpeg',
-  createdAt: '2022-03-23T03:55:59.612Z',
-  updatedAt: '2022-03-23T03:55:59.612Z',
-  id: 'user-15a37948-7712-4e0b-a554-2fef33f31697',
-  favorites: [
-    {
-      userId: 'user-15a37948-7712-4e0b-a554-2fef33f31697',
-      tweet: {
-        userId: 'user-895b3d36-8bdf-4c29-be10-7a5e7ff3287f',
-        message:
-          '@LisaHuangNorth I just deployed a new version of the UI. Mind trying again?',
-        createdAt: '2022-03-23T03:55:59.614Z',
-        updatedAt: '2022-03-23T03:55:59.614Z',
-        id: 'tweet-0db3e976-92cc-4846-9b96-e2a03da0b4e2',
-      },
-      createdAt: '2022-03-23T03:55:59.615Z',
-      updatedAt: '2022-03-23T03:55:59.615Z',
-      id: 'favorite-e4859379-b5ce-49d3-978c-a54b3de4ea7e',
-    },
-  ],
-};
-
-const TRENDS = [
-  {
-    topic: 'Frontend Masters',
-    tweetCount: 12345,
-    title: 'Frontend Masters',
-    description: 'Launch of new full stack TS course',
-    imageUrl: 'http://localhost:3000/static/fem_logo.png',
-  },
-];
 
 const App: React.FC = () => {
   const { loading, error, data } = useGetCurrentUserQuery()
@@ -82,16 +66,16 @@ const App: React.FC = () => {
     return <p>No data</p>
   }
 
-  const { currentUser, suggestions = [] } = data
+  const { currentUser, suggestions = [], trends = [] } = data
 
-  const { favorites: rawFavorites } = CURRENT_USER;
+  const { favorites: rawFavorites } = currentUser;
   const favorites = (rawFavorites || [])
-    .map((f) => f.tweet?.id)
+    .map((f) => f?.tweet?.id)
     .filter(isDefined);
 
   return (
     <div>
-      <LeftSidebar currentUser={{...CURRENT_USER, ...currentUser}} />
+      <LeftSidebar currentUser={currentUser} />
       <Header currentUser={currentUser} />
 
       <div id="container" className="wrapper nav-closed">
@@ -99,7 +83,7 @@ const App: React.FC = () => {
           currentUserId={currentUser.id}
           currentUserFavorites={favorites}
         />
-        <RightBar trends={TRENDS} suggestions={suggestions} />
+        <RightBar trends={trends} suggestions={suggestions} />
       </div>
     </div>
   );
